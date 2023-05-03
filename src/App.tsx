@@ -1,12 +1,16 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import styled, { createGlobalStyle, css } from 'styled-components';
 
+const StyledApp = styled.div`
+  background-color: ${(props) => props.theme.colors.main};
+`;
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
+    <StyledApp className="App">
       <div>
         <a href="https://reactjs.org" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -29,7 +33,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </div>
+    </StyledApp>
   );
 }
 
