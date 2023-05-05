@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 
 /* CSS */
 .button-3 {
-  appearance: none;
+  appearance: auto;
   background-color: #2ea44f;
   border: 1px solid rgba(27, 31, 35, .15);
   border-radius: 6px;
