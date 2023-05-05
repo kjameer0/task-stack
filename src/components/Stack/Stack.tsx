@@ -1,10 +1,11 @@
 //react
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 //styles
 import { StyledStack } from './StyledStack';
 //error-handling
 import { getErrorMessage } from 'utils/error-handling/error-utils';
 export default function Stack() {
+  const inputElement = useRef<HTMLInputElement>(null);
   const [stack, setStack] = useState([
     'define dynamic programming',
     'define memoization',
@@ -15,6 +16,11 @@ export default function Stack() {
   const [pushText, setPushText] = useState('');
   function handlePop() {
     setStack((prev) => prev.slice(0, prev.length - 1));
+  }
+  function handleEnterKey(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === 'Enter') {
+      handlePush();
+    }
   }
   function handlePush() {
     try {
@@ -38,10 +44,12 @@ export default function Stack() {
           PUSH
         </button>
         <input
+          ref={inputElement}
           className="push-field"
           onChange={(e) => setPushText(e.target.value)}
           value={pushText}
           placeholder="Add a task!"
+          onKeyDown={(e) => handleEnterKey(e)}
         />
       </div>
 
