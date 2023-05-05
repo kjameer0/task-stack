@@ -1,5 +1,5 @@
 //react
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 //styles
 import { StyledStack } from './StyledStack';
 //error-handling
@@ -14,6 +14,11 @@ export default function Stack() {
     'explain exponential time complexity',
   ] as string[]);
   const [pushText, setPushText] = useState('');
+  useEffect(() => {
+    if (inputElement && inputElement.current) {
+      inputElement.current.focus();
+    }
+  }, []);
   function handlePop() {
     setStack((prev) => prev.slice(0, prev.length - 1));
   }
