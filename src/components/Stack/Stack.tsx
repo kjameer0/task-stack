@@ -14,7 +14,10 @@ export default function Stack() {
   return (
     <StyledStack>
       <h1 className="page-title">Task Stack</h1>
-      <button onClick={handlePop}>POP</button>
+      <button className="button-3" onClick={handlePop}>
+        POP
+      </button>
+
       <ul>
         {stack
           .slice(0)
