@@ -17,4 +17,9 @@ export const StyledStack = styled.div`
     text-align: center;
     font-size: 2rem;
   }
+  .push-field {
+    width: 20rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
 `;

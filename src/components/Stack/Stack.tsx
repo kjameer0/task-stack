@@ -12,27 +12,69 @@ export default function Stack() {
     'define tabulation',
     'define recursive vs iterative',
     'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
+    'define dynamic programming',
+    'define memoization',
+    'define tabulation',
+    'define recursive vs iterative',
+    'explain exponential time complexity',
   ] as string[]);
   const [pushText, setPushText] = useState('');
   useEffect(() => {
+    //if input element ref exists focus that element on mount
     if (inputElement && inputElement.current) {
       inputElement.current.focus();
     }
   }, []);
   function handlePop() {
+    //copy all but the last element in the array
     setStack((prev) => prev.slice(0, prev.length - 1));
   }
   function handleEnterKey(event: React.KeyboardEvent<HTMLInputElement>) {
+    //check for which key was pressed, if its enter push current text\
+    //in input field
     if (event.key === 'Enter') {
       handlePush();
     }
   }
   function handlePush() {
     try {
+      //if no text throw error
       if (pushText.length === 0) {
         throw new Error('please add something');
       }
+      //add new val onto top of previous stack
       setStack((prev) => [...prev.slice(0), pushText]);
+      //clear field
       setPushText('');
     } catch (error) {
       console.error(getErrorMessage(error));
@@ -59,6 +101,8 @@ export default function Stack() {
       </div>
 
       <ul>
+        {/* take stack, copy it and reverse it to build
+        stack on screen without altering original state */}
         {stack
           .slice(0)
           .reverse()
