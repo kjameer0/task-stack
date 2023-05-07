@@ -11,7 +11,7 @@ export const StyledStack = styled.div`
     padding: 0;
   }
   li {
-    border: 1px solid black;
+    /* border: 5px solid black; */
     padding-top: 2rem;
     padding-bottom: 2rem;
     text-align: center;

@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from 'react';
 //styles
 import { StyledStack } from './StyledStack';
+//components
+import StackItem from './resusables/StackItem';
 //error-handling
 import { getErrorMessage } from 'utils/error-handling/error-utils';
 export default function Stack() {
@@ -107,7 +109,7 @@ export default function Stack() {
           .slice(0)
           .reverse()
           .map((task, idx) => {
-            return <li key={idx}>{task}</li>;
+            return <StackItem key={idx} idx={idx} task={task} />;
           })}
       </ul>
     </StyledStack>
