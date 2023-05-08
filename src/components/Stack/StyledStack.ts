@@ -11,11 +11,13 @@ export const StyledStack = styled.div`
     padding: 0;
   }
   li {
-    /* border: 5px solid black; */
+    border: 5px solid black;
+    background-color: rgb(0, 50, 255);
     padding-top: 2rem;
     padding-bottom: 2rem;
     text-align: center;
     font-size: 2rem;
+    /* box-shadow: 6px -160px teal; */
   }
   .push-field {
     width: 20rem;
