@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    background-color: black;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${(props) => props.theme.colors.main}
+    background-color: ${(props) => props.theme.colors.main};
   }
   h1 {
     font-size: 4rem;

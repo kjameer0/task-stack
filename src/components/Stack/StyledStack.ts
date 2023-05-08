@@ -3,21 +3,22 @@ export const StyledStack = styled.div`
   //border: 1px solid red;
   h1 {
     // border: 1px solid red;
+    text-align: left;
     margin: 0;
   }
-  ul {
-    background-color: rgb(150, 150, 150);
+  ol {
+    //background-color: rgb(150, 150, 150);
     list-style-type: none;
     padding: 0;
   }
-  li {
-    border: 5px solid black;
-    background-color: rgb(0, 50, 255);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    text-align: center;
-    font-size: 2rem;
-    /* box-shadow: 6px -160px teal; */
+  .field-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .pop-button {
+    margin-left: 2rem;
+    background: red;
   }
   .push-field {
     width: 20rem;

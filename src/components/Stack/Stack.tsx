@@ -11,44 +11,11 @@ export default function Stack() {
   const [stack, setStack] = useState([
     'define dynamic programming',
     'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
     'explain exponential time complexity',
     'define dynamic programming',
     'define memoization',
     'define tabulation',
     'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-    'explain exponential time complexity',
   ] as string[]);
   const [pushText, setPushText] = useState('');
   useEffect(() => {
@@ -86,12 +53,6 @@ export default function Stack() {
     <StyledStack>
       <h1 className="page-title">Task Stack</h1>
       <div className="field-container">
-        <button className="button-3" onClick={handlePop}>
-          POP
-        </button>
-        <button className="button-3" onClick={handlePush}>
-          PUSH
-        </button>
         <input
           ref={inputElement}
           className="push-field"
@@ -100,18 +61,24 @@ export default function Stack() {
           placeholder="Add a task!"
           onKeyDown={(e) => handleEnterKey(e)}
         />
+        <button className="button-3" onClick={handlePush}>
+          PUSH
+        </button>
+        <button className="button-3 pop-button" onClick={handlePop}>
+          POP
+        </button>
       </div>
 
-      <ul>
+      <ol>
         {/* take stack, copy it and reverse it to build
         stack on screen without altering original state */}
         {stack
           .slice(0)
           .reverse()
           .map((task, idx) => {
-            return <StackItem key={idx} idx={idx} task={task} />;
+            return <StackItem key={idx} idx={idx} isBlue={true} task={task} />;
           })}
-      </ul>
+      </ol>
     </StyledStack>
   );
 }
