@@ -1,13 +1,10 @@
 import styled, { css } from 'styled-components';
 export const StyledStack = styled.div`
-  //border: 1px solid red;
   h1 {
-    // border: 1px solid red;
     text-align: left;
-    margin: 0;
+    margin: auto auto 2rem auto;
   }
   ol {
-    //background-color: rgb(150, 150, 150);
     list-style-type: none;
     padding: 0;
   }
@@ -15,6 +12,9 @@ export const StyledStack = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+  }
+  .field-container > * {
+    margin-right: 1rem;
   }
   .pop-button {
     margin-left: 2rem;
