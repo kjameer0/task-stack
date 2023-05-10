@@ -1,22 +1,16 @@
 //react
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 //styles
 import { StyledStack } from './StyledStack';
+import { CSSTransition } from 'react-transition-group';
 //components
 import StackItem from './resusables/StackItem';
 //error-handling
 import { getErrorMessage } from 'utils/error-handling/error-utils';
 export default function Stack() {
   const inputElement = useRef<HTMLInputElement>(null);
-  const [stack, setStack] = useState([
-    'define dynamic programming',
-    'define memoization',
-    'explain exponential time complexity',
-    'define dynamic programming',
-    'define memoization',
-    'define tabulation',
-    'define recursive vs iterative',
-  ] as string[]);
+  const topItem = useRef<HTMLLIElement>(null);
+  const [stack, setStack] = useState([] as string[]);
   const [pushText, setPushText] = useState('');
   useEffect(() => {
     //if input element ref exists focus that element on mount
@@ -24,8 +18,12 @@ export default function Stack() {
       inputElement.current.focus();
     }
   }, []);
+
   function handlePop() {
     //copy all but the last element in the array
+    //topItem.current?.classList.toggle('move');
+    //topItem.current?.remove();
+    console.log(stack.length);
     setStack((prev) => prev.slice(0, prev.length - 1));
   }
   function handleEnterKey(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -49,6 +47,7 @@ export default function Stack() {
       console.error(getErrorMessage(error));
     }
   }
+  console.log(topItem);
   return (
     <StyledStack>
       <h1 className="page-title">Task Stack</h1>
@@ -68,7 +67,6 @@ export default function Stack() {
           POP
         </button>
       </div>
-
       <ol>
         {/* take stack, copy it and reverse it to build
         stack on screen without altering original state */}
@@ -76,7 +74,15 @@ export default function Stack() {
           .slice(0)
           .reverse()
           .map((task, idx) => {
-            return <StackItem key={idx} idx={idx} isBlue={true} task={task} />;
+            return (
+              <StackItem
+                key={idx}
+                idx={idx}
+                isBlue={true}
+                ref={idx === stack.length - 1 ? topItem : null}
+                task={task}
+              />
+            );
           })}
       </ol>
     </StyledStack>

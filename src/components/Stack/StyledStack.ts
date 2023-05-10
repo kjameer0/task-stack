@@ -25,4 +25,8 @@ export const StyledStack = styled.div`
     height: 2rem;
     font-size: 1.2rem;
   }
+  .move {
+    background: red;
+    transform: translate(-100%);
+  }
 `;

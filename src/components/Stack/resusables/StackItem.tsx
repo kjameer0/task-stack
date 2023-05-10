@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useRef, forwardRef, ForwardedRef } from 'react';
 import styled from 'styled-components';
 import { selectColor } from 'utils/style-utils';
+import { CSSTransition } from 'react-transition-group';
+
 interface StyledItemProps {
   isBlue: boolean;
   idx: number;
@@ -15,19 +17,14 @@ const StyledItem = styled.li<StyledItemProps>`
   font-size: 2rem;
   /* box-shadow: 6px -160px teal; */
 `;
-export default function StackItem({
-  idx,
-  task,
-  isBlue,
-}: {
-  idx: number;
-  task: string;
-  isBlue: boolean;
-}) {
-  const itemRef = useRef<HTMLLIElement>(null);
+function StackItem(
+  { idx, task, isBlue }: { idx: number; task: string; isBlue: boolean },
+  ref: ForwardedRef<HTMLLIElement>
+) {
   return (
-    <StyledItem ref={itemRef} isBlue={isBlue} idx={idx} className="card">
+    <StyledItem ref={ref} isBlue={isBlue} idx={idx} className="card">
       <div className="content">{task}</div>
     </StyledItem>
   );
 }
+export default forwardRef(StackItem);
